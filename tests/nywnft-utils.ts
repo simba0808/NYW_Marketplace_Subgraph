@@ -7,6 +7,7 @@ import {
   MetadataUpdate,
   NYW__TokenBurned,
   NYW__TokenCreated,
+  OwnershipTransferred,
   Transfer
 } from "../generated/NYWNFT/NYWNFT"
 
@@ -114,6 +115,7 @@ export function createNYW__TokenBurnedEvent(tokenId: BigInt): NYW__TokenBurned {
 export function createNYW__TokenCreatedEvent(
   tokenId: BigInt,
   creator: Address,
+  royalty: BigInt,
   uri: string
 ): NYW__TokenCreated {
   let nywTokenCreatedEvent = changetype<NYW__TokenCreated>(newMockEvent())
@@ -130,10 +132,39 @@ export function createNYW__TokenCreatedEvent(
     new ethereum.EventParam("creator", ethereum.Value.fromAddress(creator))
   )
   nywTokenCreatedEvent.parameters.push(
+    new ethereum.EventParam(
+      "royalty",
+      ethereum.Value.fromUnsignedBigInt(royalty)
+    )
+  )
+  nywTokenCreatedEvent.parameters.push(
     new ethereum.EventParam("uri", ethereum.Value.fromString(uri))
   )
 
   return nywTokenCreatedEvent
+}
+
+export function createOwnershipTransferredEvent(
+  previousOwner: Address,
+  newOwner: Address
+): OwnershipTransferred {
+  let ownershipTransferredEvent = changetype<OwnershipTransferred>(
+    newMockEvent()
+  )
+
+  ownershipTransferredEvent.parameters = new Array()
+
+  ownershipTransferredEvent.parameters.push(
+    new ethereum.EventParam(
+      "previousOwner",
+      ethereum.Value.fromAddress(previousOwner)
+    )
+  )
+  ownershipTransferredEvent.parameters.push(
+    new ethereum.EventParam("newOwner", ethereum.Value.fromAddress(newOwner))
+  )
+
+  return ownershipTransferredEvent
 }
 
 export function createTransferEvent(
