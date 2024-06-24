@@ -1,8 +1,11 @@
 {
   "sepolia": {
     "NYWNFT": {
-      "address": "0x5529Fbdc1a6c91E8517D55EE3f5f625676bB6582",
-      "startBlock": 6040977
+      "address": "0xDa493E2c99A317FeDbDC314368e22338597f0aa6",
+      "startBlock": 6151346
+    },
+    "NYWMarket": {
+      "address": "0xe5F7248016f1C07D214F34c718168003e370Da79"
     }
   }
 }

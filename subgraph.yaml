@@ -8,9 +8,9 @@ dataSources:
     name: NYWNFT
     network: sepolia
     source:
-      address: "0x5529Fbdc1a6c91E8517D55EE3f5f625676bB6582"
+      address: "0xDa493E2c99A317FeDbDC314368e22338597f0aa6"
       abi: NYWNFT
-      startBlock: 6040977
+      startBlock: 6151346
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -22,6 +22,7 @@ dataSources:
         - MetadataUpdate
         - NYW__TokenBurned
         - NYW__TokenCreated
+        - OwnershipTransferred
         - Transfer
       abis:
         - name: NYWNFT
@@ -37,8 +38,39 @@ dataSources:
           handler: handleMetadataUpdate
         - event: NYW__TokenBurned(uint256)
           handler: handleNYW__TokenBurned
-        - event: NYW__TokenCreated(uint256,indexed address,string)
+        - event: NYW__TokenCreated(uint256,indexed address,uint256,string)
           handler: handleNYW__TokenCreated
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
       file: ./src/nywnft.ts
+  - kind: ethereum
+    name: NYWMarket
+    network: sepolia
+    source:
+      address: "0xe5F7248016f1C07D214F34c718168003e370Da79"
+      abi: NYWMarket
+      startBlock: 6151347
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - NYW__NFTDelisted
+        - NYW__NFTListed
+        - NYW__NFTSold
+        - NYW__withdraw
+      abis:
+        - name: NYWMarket
+          file: ./abis/NYWMarket.json
+      eventHandlers:
+        - event: NYW__NFTDelisted(indexed uint256)
+          handler: handleNYW__NFTDelisted
+        - event: NYW__NFTListed(indexed uint256)
+          handler: handleNYW__NFTListed
+        - event: NYW__NFTSold(uint256,address,uint256)
+          handler: handleNYW__NFTSold
+        - event: NYW__withdraw(uint256)
+          handler: handleNYW__withdraw
+      file: ./src/nyw-market.ts

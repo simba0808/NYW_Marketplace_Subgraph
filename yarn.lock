@@ -219,10 +219,10 @@
     graphql-import-node "^0.0.5"
     js-yaml "^4.1.0"
 
-"@graphprotocol/graph-cli@0.74.1":
-  version "0.74.1"
-  resolved "https://registry.yarnpkg.com/@graphprotocol/graph-cli/-/graph-cli-0.74.1.tgz#40c4700f78a806e83e220c8788ce9c4001e55629"
-  integrity sha512-xdFJGuINdgt3dWRp/aNkqZujCyab4cPWVsvX7FSjX4k7xT4eea3nxZsksJzDrdbOrr2pf/UBLZoBBz3SqxxSXg==
+"@graphprotocol/graph-cli@0.75.0":
+  version "0.75.0"
+  resolved "https://registry.yarnpkg.com/@graphprotocol/graph-cli/-/graph-cli-0.75.0.tgz#452ebb571fd97f39316949a1a8782a12c8584008"
+  integrity sha512-FGmH0D7Xjlt8k7phcR9Mw4niR2TAv5MvD3ASDPntu6JkhTOsPbOhmQruYzyDjAk4WwPMdOeD1eJjM8dKC4/HQQ==
   dependencies:
     "@float-capital/float-subgraph-uncrashable" "^0.0.0-alpha.4"
     "@oclif/core" "2.8.6"
@@ -572,9 +572,9 @@
   integrity sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==
 
 "@types/node@*", "@types/node@>=13.7.0":
-  version "20.14.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.14.2.tgz#a5f4d2bcb4b6a87bffcaa717718c5a0f208f4a18"
-  integrity sha512-xyu6WAMVwv6AKFLB+e/7ySZVr/0zLCzOa7rSpq6jNwpqOrUbcACDWC+53d4n2QHOnDou0fbIsg8wZu/sxrnI4Q==
+  version "20.14.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.14.7.tgz#342cada27f97509eb8eb2dbc003edf21ce8ab5a8"
+  integrity sha512-uTr2m2IbJJucF3KUxgnGOZvYbN0QgkGyWxG6973HCpMYFy2KfcgYuIwkJQMQkt1VbBMlvWRbpshFTLxnxCZjKQ==
   dependencies:
     undici-types "~5.26.4"
 
